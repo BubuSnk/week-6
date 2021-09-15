@@ -1,0 +1,26 @@
+#include <stdio.h>
+struct Time
+{
+    int hour;
+    int min;
+    int sec;
+};
+static void convert(int sec, struct Time *h);
+
+int main(void)
+{
+    struct Time time;
+    int sec;    
+    scanf("%d", &sec); 
+    
+        convert(sec, &time);
+        printf("%d:%d:%d", time.hour, time.min, time.sec);
+    
+    return 0;
+}
+static void convert(int sec, struct Time *h)
+{
+    h->hour = sec / 3600;
+    h->min = (sec / 60) % 60;
+    h->sec = sec % 60;
+}
